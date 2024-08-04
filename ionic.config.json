@@ -1,0 +1,7 @@
+{
+  "name": "toolkit-webapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

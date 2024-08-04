@@ -1,0 +1,41 @@
+<ion-header mode="md">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button class="logo_button">
+        <ion-icon slot="icon-only" src="../../assets/icon/tool-circle.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="app_title">Toolkit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card class="card-button" button="true">
+          <ion-icon src="../../assets/icon/knife-line.svg" class="menu_icon" color="success"></ion-icon>
+        </ion-card>
+        <p>Butchery</p>
+      </ion-col>
+      <ion-col>
+        <ion-card class="card-button" button="true">
+          <ion-icon src="../../assets/icon/skillet.svg" class="menu_icon" color="success"></ion-icon>
+        </ion-card>
+        <p>Commissaries</p>
+      </ion-col>
+      <ion-col>
+        <ion-card class="card-button" button="true" (click)="onSettings()">
+          <ion-icon name="storefront-outline" class="menu_icon" color="success"></ion-icon>
+        </ion-card>
+        <p>Outlets</p>
+      </ion-col>
+      <ion-col>
+        <ion-card class="card-button" button="true" (click)="onUsers()">
+          <ion-icon name="people-outline" class="menu_icon" color="success"></ion-icon>
+        </ion-card>
+        <p>Users</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
