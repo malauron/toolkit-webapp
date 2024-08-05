@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable max-len */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable id-blacklist */
@@ -43,7 +42,7 @@ export class UsersService {
 
     searchDesc = filterString(searchDesc);
 
-    // this.apiUrl = `${this.config.urlV1Users}?page=${pageNumber}&size=${pageSize}&searchDesc=${searchDesc}`;
+    this.apiUrl = `${this.config.urlV1}/users?page=${pageNumber}&size=${pageSize}&searchDesc=${searchDesc}`;
 
     return this.http.get<ResponseUsers>(this.apiUrl);
   }

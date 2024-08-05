@@ -37,7 +37,6 @@ export class UsersPage implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    console.log(this.config);
     this.usersService.getUsers(this.pageNumber,this.config.pageSize).subscribe(
       (res) => {}
     );
@@ -75,8 +74,9 @@ export class UsersPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.searchSub.unsubscribe();
-    this.userSub.unsubscribe();
+    // this.searchSub.unsubscribe();
+    // this.userSub.unsubscribe();
+    console.log('Exiting page...')
   }
 
 }
