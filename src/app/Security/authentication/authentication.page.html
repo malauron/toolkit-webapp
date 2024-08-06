@@ -18,7 +18,7 @@
       </div>
     </form>
     <div class="credentials">
-      <ion-button (click)="onLogin()" [disabled]="this.isLoggingIn">
+      <ion-button (click)="onLogin()" [disabled]="this.isLoggingIn" color="success">
         <ion-label *ngIf="!this.isLoggingIn">LOGIN</ion-label>
         <ion-spinner name="bubbles" *ngIf="this.isLoggingIn"></ion-spinner>
       </ion-button>
