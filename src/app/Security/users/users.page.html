@@ -10,16 +10,10 @@
       </ion-button>
     </ion-buttons>
     <ion-searchbar class="searchbar-header" #searchBarHeader placeholder="Search" mode="ios"></ion-searchbar>
-    <!-- <ion-searchbar #searchBar placeholder="Search Users" mode="ios"></ion-searchbar> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="!isFetching">
-    <ion-fab-button color="success" (click)="onAddReleasing()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> -->
 
   <div class="spinner">
     <ion-spinner
@@ -33,160 +27,13 @@
     <ion-searchbar #searchBarContent placeholder="Search" mode="ios"></ion-searchbar>
   </div>
 
-
-
-  <!-- <ion-list [inset]="true" mode="ios">
-
-    <ion-searchbar #searchBar placeholder="Search Users" mode="ios"></ion-searchbar></ion-list> -->
-
   <ion-list [inset]="true" mode="ios">
-    <!-- <ion-item [button]="true" *ngFor="let user of users">
-      <strong>{{ user.username }}</strong>
-    </ion-item> -->
     <ion-item [button]="true" lines="full" *ngFor="let user of users">
       <ion-label>
         <ion-label>{{user.username}}</ion-label>
         <p>Admin</p>
       </ion-label>
     </ion-item>
-    <!-- <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Ringo</ion-label>
-        <p>Supervisor</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>George</ion-label>
-        <p>Cashier</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Paul</ion-label>
-        <p>Admin</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full">
-      <ion-label>
-        <ion-label>John</ion-label>
-        <p>Admin</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Ringo</ion-label>
-        <p>Supervisor</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>George</ion-label>
-        <p>Cashier</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Paul</ion-label>
-        <p>Admin</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full">
-      <ion-label>
-        <ion-label>John</ion-label>
-        <p>Admin</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Ringo</ion-label>
-        <p>Supervisor</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>George</ion-label>
-        <p>Cashier</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Paul</ion-label>
-        <p>Admin</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full">
-      <ion-label>
-        <ion-label>John</ion-label>
-        <p>Admin</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Ringo</ion-label>
-        <p>Supervisor</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>George</ion-label>
-        <p>Cashier</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Paul</ion-label>
-        <p>Admin</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full">
-      <ion-label>
-        <ion-label>John</ion-label>
-        <p>Admin</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Ringo</ion-label>
-        <p>Supervisor</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>George</ion-label>
-        <p>Cashier</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Paul</ion-label>
-        <p>Admin</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full">
-      <ion-label>
-        <ion-label>John</ion-label>
-        <p>Admin</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Ringo</ion-label>
-        <p>Supervisor</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>George</ion-label>
-        <p>Cashier</p>
-      </ion-label>
-    </ion-item>
-    <ion-item [button]="true" lines="full" mode="ios">
-      <ion-label>
-        <ion-label>Paul</ion-label>
-        <p>Admin</p>
-      </ion-label>
-    </ion-item> -->
   </ion-list>
 
   <!-- <ion-grid>
