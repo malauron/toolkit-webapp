@@ -35,8 +35,8 @@ export class UsersService {
   }
 
   getUsers(
-    pageNumber: number,
-    pageSize: number,
+    pageNumber?: number,
+    pageSize?: number,
     searchDesc?: any
   ): Observable<ResponseUsers> {
 

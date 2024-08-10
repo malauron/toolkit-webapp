@@ -3,17 +3,23 @@
     <ion-buttons slot="start">
       <ion-back-button default-href="#" mode="md"></ion-back-button>
     </ion-buttons>
-    <ion-title  slot="start">Users</ion-title>
-    <ion-searchbar #searchBar placeholder="Search Users"></ion-searchbar>
+    <ion-title slot="start">Users</ion-title>
+    <ion-buttons slot="end" class="end-buttons">
+      <ion-button color="primary" class="add-button">
+        <ion-icon src="../../../assets/icon/person-add.svg" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar class="searchbar-header" #searchBarHeader placeholder="Search" mode="ios"></ion-searchbar>
+    <!-- <ion-searchbar #searchBar placeholder="Search Users" mode="ios"></ion-searchbar> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="!isFetching">
-    <!-- <ion-fab-button color="success" (click)="onAddReleasing()">
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="!isFetching">
+    <ion-fab-button color="success" (click)="onAddReleasing()">
       <ion-icon name="add"></ion-icon>
-    </ion-fab-button> -->
-  </ion-fab>
+    </ion-fab-button>
+  </ion-fab> -->
 
   <div class="spinner">
     <ion-spinner
@@ -23,7 +29,167 @@
     ></ion-spinner>
   </div>
 
-  <ion-grid>
+  <div class="searchbar-content">
+    <ion-searchbar #searchBarContent placeholder="Search" mode="ios"></ion-searchbar>
+  </div>
+
+
+
+  <!-- <ion-list [inset]="true" mode="ios">
+
+    <ion-searchbar #searchBar placeholder="Search Users" mode="ios"></ion-searchbar></ion-list> -->
+
+  <ion-list [inset]="true" mode="ios">
+    <!-- <ion-item [button]="true" *ngFor="let user of users">
+      <strong>{{ user.username }}</strong>
+    </ion-item> -->
+    <ion-item [button]="true" lines="full" *ngFor="let user of users">
+      <ion-label>
+        <ion-label>{{user.username}}</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item>
+    <!-- <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Ringo</ion-label>
+        <p>Supervisor</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>George</ion-label>
+        <p>Cashier</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Paul</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full">
+      <ion-label>
+        <ion-label>John</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Ringo</ion-label>
+        <p>Supervisor</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>George</ion-label>
+        <p>Cashier</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Paul</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full">
+      <ion-label>
+        <ion-label>John</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Ringo</ion-label>
+        <p>Supervisor</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>George</ion-label>
+        <p>Cashier</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Paul</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full">
+      <ion-label>
+        <ion-label>John</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Ringo</ion-label>
+        <p>Supervisor</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>George</ion-label>
+        <p>Cashier</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Paul</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full">
+      <ion-label>
+        <ion-label>John</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Ringo</ion-label>
+        <p>Supervisor</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>George</ion-label>
+        <p>Cashier</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Paul</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full">
+      <ion-label>
+        <ion-label>John</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Ringo</ion-label>
+        <p>Supervisor</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>George</ion-label>
+        <p>Cashier</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [button]="true" lines="full" mode="ios">
+      <ion-label>
+        <ion-label>Paul</ion-label>
+        <p>Admin</p>
+      </ion-label>
+    </ion-item> -->
+  </ion-list>
+
+  <!-- <ion-grid>
     <ion-row class="data-hdr">
       <ion-col size-lg="2.5">
         <ion-item lines="none"
@@ -35,7 +201,7 @@
           ><ion-label><h2>Username</h2></ion-label></ion-item
         >
       </ion-col>
-      <!-- <ion-col size-lg="2.5">
+      <ion-col size-lg="2.5">
         <ion-item lines="none"
           ><ion-label class="num-col-lbl"><h2>Total Amount</h2></ion-label></ion-item
         >
@@ -49,12 +215,12 @@
         <ion-item lines="none"
           ><ion-label><h2>Created On</h2></ion-label></ion-item
         >
-      </ion-col> -->
+      </ion-col>
     </ion-row>
     <ion-row class="data-row" *ngFor="let user of users">
       <div class="option-buttons">
         <ion-item lines="none">
-          <!-- <ion-button
+          <ion-button
             class="delete-item-button"
             (click)="onEditReleasing(releasing.butcheryReleasingId)"
             mode="ios"
@@ -64,7 +230,7 @@
             size="default"
           >
             <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
-          </ion-button> -->
+          </ion-button>
         </ion-item>
       </div>
       <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="2.5">
@@ -83,7 +249,7 @@
           ></ion-item
         >
       </ion-col>
-      <!-- <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="2.5">
+      <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="2.5">
         <ion-item lines="none"
           ><ion-label class="num-row-lbl"
             ><h3>Total Amount</h3>
@@ -108,21 +274,21 @@
             {{ releasing.dateCreated| date:'MMM dd, yyyy hh:mm a' }}</ion-label
           ></ion-item
         >
-      </ion-col> -->
+      </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 
   <ion-infinite-scroll
     #infiniteScroll
     threshold="5%"
-    (ionInfinite)="loadMoreReleasings($event)"
+    (ionInfinite)="loadMoreData($event)"
   >
     <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="Loading more data..."
+      loadingSpinner="none"
+      loadingText="Fetching data..."
     >
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
-  <div class="empty-space"></div>
+  <!-- <div class="empty-space"></div> -->
 </ion-content>

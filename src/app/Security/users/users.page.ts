@@ -37,13 +37,36 @@ export class UsersPage implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.usersService.getUsers(this.pageNumber,this.config.pageSize).subscribe(
-      (res) => {}
-    );
+
+    this.getUsers(undefined, this.pageNumber,this.config.pageSize);
+
   }
 
+  getUsers(
+    event?,
+    pageNumber?: number,
+    pageSize?: number,
+    searchDesc?: string
+  ){
+    this.isFetching = true;
 
-  loadMoreReleasings(event) {
+    this.usersService.getUsers(pageNumber, pageSize).subscribe({
+      next: (res) => {
+        this.users = this.users.concat(res.content);
+        this.totalPages = res.totalPages;
+        this.isFetching = false;
+        if (event) {
+          event.target.complete();
+        }
+        this.infiniteScroll.disabled = false;
+      },
+      error: (error) => {},
+      complete: () => {}
+    });
+
+  }
+
+  loadMoreData(event) {
     if (this.pageNumber + 1 >= this.totalPages) {
       event.target.disabled = true;
       return;
@@ -52,14 +75,14 @@ export class UsersPage implements OnInit, OnDestroy {
     this.pageNumber++;
 
     if (this.searchValue) {
-      // this.getReleasings(
-      //   event,
-      //   this.pageNumber,
-      //   this.config.pageSize,
-      //   this.searchValue
-      // );
+      this.getUsers(
+        event,
+        this.pageNumber,
+        this.config.pageSize,
+        this.searchValue
+      );
     } else {
-      // this.getReleasings(event, this.pageNumber, this.config.pageSize);
+      this.getUsers(event, this.pageNumber, this.config.pageSize);
     }
   }
 
