@@ -16,11 +16,7 @@
 <ion-content class="ion-padding">
 
   <div class="spinner">
-    <ion-spinner
-      name="bubbles"
-      color="primary"
-      *ngIf="isFetching"
-    ></ion-spinner>
+    <ion-spinner name="bubbles" color="primary" *ngIf="isFetching"></ion-spinner>
   </div>
 
   <div class="searchbar-content">
@@ -36,19 +32,17 @@
     </ion-item>
   </ion-list>
 
-  <!-- <ion-grid>
+  <ion-grid>
     <ion-row class="data-hdr">
       <ion-col size-lg="2.5">
-        <ion-item lines="none"
-          ><ion-label class="id-col-lbl"><h2>ID No.</h2></ion-label></ion-item
-        >
+        <ion-label>ID #</ion-label>
+
+
       </ion-col>
       <ion-col size-lg="3">
-        <ion-item lines="none"
-          ><ion-label><h2>Username</h2></ion-label></ion-item
-        >
+        <ion-label>Username</ion-label>
       </ion-col>
-      <ion-col size-lg="2.5">
+      <!-- <ion-col size-lg="2.5">
         <ion-item lines="none"
           ><ion-label class="num-col-lbl"><h2>Total Amount</h2></ion-label></ion-item
         >
@@ -62,45 +56,26 @@
         <ion-item lines="none"
           ><ion-label><h2>Created On</h2></ion-label></ion-item
         >
-      </ion-col>
+      </ion-col> -->
     </ion-row>
     <ion-row class="data-row" *ngFor="let user of users">
-      <div class="option-buttons">
+      <!-- <div class="option-buttons">
         <ion-item lines="none">
-          <ion-button
-            class="delete-item-button"
-            (click)="onEditReleasing(releasing.butcheryReleasingId)"
-            mode="ios"
-            slot="end"
-            fill="clear"
-            color="medium"
-            size="default"
-          >
+          <ion-button class="delete-item-button" mode="ios" slot="end" fill="clear" color="medium" size="default">
             <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
           </ion-button>
         </ion-item>
-      </div>
+      </div> -->
       <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="2.5">
-        <ion-item lines="none"
-          ><ion-label class="id-row-lbl"
-            ><h3>ID No.</h3>
-            {{ user.userId }}</ion-label
-          ></ion-item
-        >
+            {{ user.userId }}
       </ion-col>
       <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="3">
-        <ion-item lines="none"
-          ><ion-label
-            ><h3>Username</h3>
-            {{ user.username }}</ion-label
-          ></ion-item
-        >
+          {{ user.username }}
       </ion-col>
-      <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="2.5">
+      <!-- <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="2.5">
         <ion-item lines="none"
           ><ion-label class="num-row-lbl"
-            ><h3>Total Amount</h3>
-            {{ releasing.totalAmount | number:'1.2-2' }}</ion-label
+            ><h3>Total Amount</h3></ion-label
           ></ion-item
         >
       </ion-col>
@@ -108,8 +83,8 @@
         <ion-item lines="none">
           <ion-label class="status-row-lbl"
             ><h3>Status</h3>
-            <ion-badge [color]="getStatusColor(releasing.releasingStatus)"
-              >{{ releasing.releasingStatus }}</ion-badge
+            <ion-badge
+              ></ion-badge
             ></ion-label
           >
         </ion-item>
@@ -117,23 +92,15 @@
       <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="2.5">
         <ion-item lines="none"
           ><ion-label
-            ><h3>Created On</h3>
-            {{ releasing.dateCreated| date:'MMM dd, yyyy hh:mm a' }}</ion-label
+            ><h3>Created On</h3></ion-label
           ></ion-item
         >
-      </ion-col>
+      </ion-col> -->
     </ion-row>
-  </ion-grid> -->
+  </ion-grid>
 
-  <ion-infinite-scroll
-    #infiniteScroll
-    threshold="5%"
-    (ionInfinite)="loadMoreData($event)"
-  >
-    <ion-infinite-scroll-content
-      loadingSpinner="none"
-      loadingText="Fetching data..."
-    >
+  <ion-infinite-scroll #infiniteScroll threshold="5%" (ionInfinite)="loadMoreData($event)">
+    <ion-infinite-scroll-content loadingSpinner="none" loadingText="Fetching data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
