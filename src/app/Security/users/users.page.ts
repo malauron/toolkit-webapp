@@ -52,6 +52,7 @@ export class UsersPage implements OnInit, OnDestroy {
 
     this.usersService.getUsers(pageNumber, pageSize).subscribe({
       next: (res) => {
+        console.log(res);
         this.users = this.users.concat(res.content);
         this.totalPages = res.totalPages;
         this.isFetching = false;
