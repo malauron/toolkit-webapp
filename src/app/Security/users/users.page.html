@@ -1,15 +1,20 @@
 <ion-header class="ion-no-border" mode="md">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button default-href="#" mode="md"></ion-back-button>
+      <ion-button (click)="onBackButtonClicked()" mode="md">
+        <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
-    <ion-title slot="start">Users</ion-title>
-    <ion-buttons slot="end" class="end-buttons">
-      <ion-button color="primary" class="add-button">
+    <ion-title *ngIf="isIonTitleVisible" slot="start">Users</ion-title>
+    <ion-buttons *ngIf="isEndButtonsVisible" slot="end" class="end-buttons">
+      <ion-button color="primary" class="end-button" (click)="onSearchButtonClicked()">
+        <ion-icon name="search-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button color="primary" class="end-button">
         <ion-icon src="../../../assets/icon/person-add.svg" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-searchbar class="searchbar-header" #searchBarHeader placeholder="Search" mode="ios"></ion-searchbar>
+    <ion-searchbar #searchBar *ngIf="isSearchbarVisible" class="searchbar-header" placeholder="Search" mode="ios"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -19,81 +24,48 @@
     <ion-spinner name="bubbles" color="primary" *ngIf="isFetching"></ion-spinner>
   </div>
 
-  <div class="searchbar-content">
-    <ion-searchbar #searchBarContent placeholder="Search" mode="ios"></ion-searchbar>
-  </div>
-
   <ion-list [inset]="true" mode="ios">
     <ion-item [button]="true" lines="full" *ngFor="let user of users">
       <ion-label>
         <ion-label>{{user.username}}</ion-label>
-        <p>Admin</p>
+        <p>{{user.fullName}}</p>
       </ion-label>
     </ion-item>
   </ion-list>
 
   <ion-grid>
     <ion-row class="data-hdr">
-      <ion-col size-sm="3">
+      <ion-col size-sm="3" size-md="2">
         <ion-label class="id-hdr-lbl">ID #</ion-label>
       </ion-col>
-      <ion-col size-sm="3">
-        <ion-label>Username</ion-label>
+      <ion-col size-sm="3" size-lg="2">
+        Username
       </ion-col>
-      <!-- <ion-col size-lg="2.5">
-        <ion-item lines="none"
-          ><ion-label class="num-col-lbl"><h2>Total Amount</h2></ion-label></ion-item
-        >
+      <ion-col size-sm="5" size-md="4">
+        Full Name
       </ion-col>
-      <ion-col size-lg="1.5">
-        <ion-item lines="none"
-          ><ion-label class="status-col-lbl"><h2>Status</h2></ion-label></ion-item
-        >
+      <ion-col class="email-col" size-sm="2" size-lg="3">
+        Email
       </ion-col>
-      <ion-col size-lg="2.5">
-        <ion-item lines="none"
-          ><ion-label><h2>Created On</h2></ion-label></ion-item
-        >
-      </ion-col> -->
+      <ion-col size="1" class="button-col">
+        <ion-button color="light" shape="round">
+          <ion-icon color="primary" src="../../../assets/icon/person-add.svg" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
     </ion-row>
     <ion-row class="data-row" *ngFor="let user of users">
-      <!-- <div class="option-buttons">
-        <ion-item lines="none">
-          <ion-button class="delete-item-button" mode="ios" slot="end" fill="clear" color="medium" size="default">
-            <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
-          </ion-button>
-        </ion-item>
-      </div> -->
-      <ion-col size-sm="3">
-            <ion-label class="id-data-lbl">{{ user.userId }}</ion-label>
+      <ion-col size-sm="3" size-md="2">
+        <ion-label class="id-data-lbl">{{ user.userId }}</ion-label>
       </ion-col>
-      <ion-col size-sm="3">
-          {{ user.username }}
+      <ion-col size-sm="3" size-lg="2">
+        {{ user.username }}
       </ion-col>
-      <!-- <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="2.5">
-        <ion-item lines="none"
-          ><ion-label class="num-row-lbl"
-            ><h3>Total Amount</h3></ion-label
-          ></ion-item
-        >
+      <ion-col size-sm="6" size-md="4">
+        {{ user.fullName }}
       </ion-col>
-      <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="1.5">
-        <ion-item lines="none">
-          <ion-label class="status-row-lbl"
-            ><h3>Status</h3>
-            <ion-badge
-              ></ion-badge
-            ></ion-label
-          >
-        </ion-item>
+      <ion-col class="email-col" size-sm="3" size-lg="4">
+        {{ user.email }}
       </ion-col>
-      <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="2.5">
-        <ion-item lines="none"
-          ><ion-label
-            ><h3>Created On</h3></ion-label
-          ></ion-item
-        >
-      </ion-col> -->
     </ion-row>
   </ion-grid>
 
@@ -101,6 +73,5 @@
     <ion-infinite-scroll-content loadingSpinner="none" loadingText="Fetching data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
-
-  <!-- <div class="empty-space"></div> -->
+  
 </ion-content>

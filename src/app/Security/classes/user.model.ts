@@ -3,6 +3,8 @@ export class User {
         public userId?: number,
         public username?: string,
         public password?: string,
+        public fullName?: string,
+        public email?: string,
         public accountNonExpired?: boolean,
         public accountNonLocked?: boolean,
         public credentialsNonExpired?: boolean,
